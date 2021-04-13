@@ -643,11 +643,11 @@ address {
 
 .footer-item {
   flex-basis: calc((50% - 45px) / 2);
-  margin-top: 12px;
 }
 
 .footer-item:last-child {
   flex-basis: calc(50%);
+  margin-top: 12px;
 }
 
 .footer .logo-title {
@@ -734,15 +734,13 @@ address {
 }
 
 .footer .footer-form {
-  /* background-color: rgb(59, 48, 69); */
-  /* min-width: 570px; */
   margin-left: auto;
   color: white;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.03em;
   line-height: 1.14;
-  font-style: notmal;
+  font-style: normal;
 }
 
 .email-form p {
@@ -751,27 +749,29 @@ address {
 }
 
 .footer-form .input {
-  outline: none;
   color: currentColor;
   background-color: var(--transparent-color);
   padding: 15px 16px;
+
   border-width: 1px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.3);
-
+  outline-color: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
+
   width: 358px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0.03em;
 
-  transition: border-color var(--animation);
+  transition: border-color var(--animation), outline-color var(--animation);
 }
 
 .footer-form .input:hover,
 .footer-form .input:focus {
   border-color: var(--accent-color);
+  outline-color: var(--accent-color);
 }
 
 .email-form .button {
@@ -780,16 +780,9 @@ address {
   align-items: center;
   padding: 10px 28px 10px 29px;
   margin-left: 12px;
-  font-weight: 700;
-  color: currentColor;
 
-  font-size: 16px;
-  line-height: 1.9;
-  letter-spacing: 0.06em;
   background-color: var(--accent-color);
-  border: none;
 
-  text-align: center;
   transition: background-color var(--animation);
 }
 
@@ -803,7 +796,7 @@ address {
   margin-left: 10px;
 }
 
-/*==================================*/
+/*================button-close==================*/
 .button-close {
   position: absolute;
   top: 8px;
@@ -835,6 +828,7 @@ address {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
+/*--------------------backdrop-----------------------*/
 
 .backdrop {
   position: fixed;
@@ -883,7 +877,7 @@ address {
   transition: transform var(--animation);
 }
 
-.modal-form-wrapper {
+.modal-form-containe {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -897,8 +891,16 @@ address {
   width: 100%;
 }
 
-.modal-form-wrapper .group + .group {
+.modal-form-container .group + .group {
   margin-top: 10px;
+}
+/*------------form-heading-------------------*/
+.modal .form-heading {
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
 }
 
 .modal-form .label {
@@ -910,16 +912,7 @@ address {
   letter-spacing: 0.01em;
   color: var(--text-primery-color);
 }
-
-.modal .form-heading {
-  text-align: center;
-  margin-bottom: 12px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  letter-spacing: 0.03em;
-}
-
+/*----------------input------------------*/
 .modal-form .input {
   width: 100%;
   padding-top: 12px;
@@ -930,16 +923,22 @@ address {
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.1721;
+  font-size: 14px;
+  line-height: 1.14;
   color: var(--black-color);
   letter-spacing: 0.01em;
 
+  outline-color: var(--bg-accent-col);
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-color-for-modal);
   transition: border-color var(--animation);
+}
+
+.modal-form .input:hover,
+.modal-form .input:focus {
+  border-color: var(--accent-color);
 }
 
 .modal-form .form-field {
@@ -956,12 +955,6 @@ address {
 
   transition: fill var(--animation);
 }
-
-.modal-form .input:hover,
-.modal-form .input:focus {
-  border-color: var(--accent-color);
-}
-
 .modal-form .input:hover + .icon,
 .modal-form .input:focus + .icon {
   fill: var(--accent-color);
@@ -971,11 +964,14 @@ address {
 .modal-form .textarea {
   padding: 11px 15px;
   resize: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /*---------------checkbox---------------*/
 .modal-form .checkbox-group {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -984,21 +980,21 @@ address {
   font-weight: normal;
   font-size: 14px;
   line-height: 1.71;
-  /* identical to box height, or 171% */
 
   letter-spacing: 0.03em;
 
-  color: #757575;
+  color: var(--text-primery-color);
 }
 
 .modal-form .checkbox-label {
-  position: relative;
-  display: inline-block;
+  /* position: relative; */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  padding-left: calc(12px + 16px + 8px);
 }
 
-.checkbox-group .checkbox-icon {
+/* .checkbox-group .checkbox-icon {
   position: absolute;
 
   top: 50%;
@@ -1011,15 +1007,40 @@ address {
   fill: none;
 
   transition: fill var(--animation), background-color var(--animation);
+} */
+
+.modal-form .checkbox {
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 
-.modal-form .checkbox:checked + .checkbox-icon {
+.modal-form .checkbox:checked,
+.modal-form .checkbox:hover {
   background-color: var(--accent-color);
-  fill: green;
+  /* fill: var(--white-color); */
   border: none;
 }
 
 .modal-form .link {
-  color: var(--accent-color);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+
+  letter-spacing: 0.03em;
+  margin-left: 2px;
+  color: var(--bg-accent-col);
   text-decoration: underline;
+  transition: color var(--animation);
+}
+
+.modal-form .link:hover,
+.modal-form .link:focus {
+  color: var(--accent-color);
+}
+
+.modal-form .button {
+  display: block;
+  margin: auto;
 }
