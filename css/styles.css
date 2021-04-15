@@ -992,6 +992,17 @@ address {
   padding-left: calc(7px + 16px);
 }
 
+.visually-hidden-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border-radius: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .checkbox-group .checkbox-icon {
   position: absolute;
 
