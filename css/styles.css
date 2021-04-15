@@ -780,6 +780,7 @@ address {
   align-items: center;
   padding: 10px 28px 10px 29px;
   margin-left: 12px;
+  border: 1px solid var(--accent-color);
 
   background-color: var(--accent-color);
 
@@ -826,7 +827,7 @@ address {
 .button-close:hover,
 .button-close:focus {
   color: var(--accent-color);
-  border-color: var(--accent-color);
+  border-color: #e6e6e6;
   outline-color: currentColor;
 }
 /*--------------------backdrop-----------------------*/
@@ -878,11 +879,12 @@ address {
   transition: transform var(--animation);
 }
 
-.modal-form-containe {
+.modal-form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 446px;
 }
 
 .modal-form .label,
@@ -937,7 +939,7 @@ address {
   transition: border-color var(--animation);
 }
 
-.modal-form .input:hover,
+/* .modal-form .input:hover, */
 .modal-form .input:focus {
   border-color: var(--accent-color);
 }
@@ -951,12 +953,10 @@ address {
   top: 50%;
   left: 11px;
   transform: translateY(-50%);
-
-  /* fill: currentColor; */
-
   transition: fill var(--animation);
 }
-.modal-form .input:hover + .icon,
+
+/* .modal-form .input:hover + .icon, */
 .modal-form .input:focus + .icon {
   fill: var(--accent-color);
 }
@@ -965,8 +965,11 @@ address {
 .modal-form .textarea {
   padding: 11px 15px;
   resize: none;
-  /* width: 448px; */
   overflow: hidden;
+}
+
+.modal-form .textarea::placeholder {
+  color: rgba(117, 117, 117, 0.5);
 }
 
 /*---------------checkbox---------------*/
@@ -986,13 +989,13 @@ address {
 }
 
 .modal-form .checkbox-label {
+  position: relative;
   display: inline-block;
   cursor: pointer;
-  position: relative;
   padding-left: calc(7px + 16px);
 }
 
-.visually-hidden-check {
+.checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1003,7 +1006,7 @@ address {
   overflow: hidden;
 }
 
-.checkbox-group .checkbox-icon {
+/* .checkbox-group .checkbox-icon {
   position: absolute;
 
   top: 50%;
@@ -1029,6 +1032,38 @@ address {
 .modal-form .checkbox:focus + .checkbox-icon {
   border-color: var(--accent-color);
   outline-color: var(--accent-color);
+} */
+
+.modal-form .check-icon {
+  position: absolute;
+  display: inline-block;
+
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--bg-accent-color);
+  border-radius: 2px;
+  background-image: none;
+  background-color: transparent;
+  transition: border-color var(--animation), background-image var(--animation), background-color var(--animation);
+}
+
+.modal-form .checkbox:checked + .check-icon {
+  border-color: transparent;
+  background-color: var(--accent-color);
+  background-image: url(../images/icon/check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border: none;
+}
+
+.modal-form .checkbox:focus + .check-icon,
+.modal-form .checkbox:hover ~ .check-icon {
+  border: 2px solid var(--accent-color);
 }
 
 .modal-form .link {
@@ -1039,14 +1074,14 @@ address {
 
   letter-spacing: 0.03em;
   margin-left: 2px;
-  color: var(--bg-accent-col);
+  color: var(--accent-color);
   text-decoration: underline;
   transition: color var(--animation);
 }
 
 .modal-form .link:hover,
 .modal-form .link:focus {
-  color: var(--accent-color);
+  color: var(--bg-accent-col);
   outline-color: currentColor;
 }
 
