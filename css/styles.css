@@ -965,8 +965,8 @@ address {
 .modal-form .textarea {
   padding: 11px 15px;
   resize: none;
-  width: 448px;
-  /* overflow: hidden; */
+  /* width: 448px; */
+  overflow: hidden;
 }
 
 /*---------------checkbox---------------*/
