@@ -648,6 +648,7 @@ address {
 .footer-item:last-child {
   flex-basis: calc(50%);
   margin-top: 12px;
+  margin-left: auto;
 }
 
 .footer .logo-title {
@@ -772,6 +773,10 @@ address {
 .footer-form .input:focus {
   border-color: var(--accent-color);
   outline-color: var(--accent-color);
+}
+
+.footer-form .input::placeholder {
+  color: #acacb0;
 }
 
 .email-form .button {
