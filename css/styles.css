@@ -688,7 +688,8 @@ address {
   margin-bottom: 40px;
 }
 
-.footer-social .footer-caption {
+.footer-social .footer-caption,
+.footer-item .footer-caption {
   margin-bottom: 20px;
 
   font-weight: 700;
@@ -735,18 +736,12 @@ address {
 }
 
 .footer .footer-form {
-  margin-left: auto;
   color: white;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.03em;
   line-height: 1.14;
   font-style: normal;
-}
-
-.email-form p {
-  margin-bottom: 20px;
-  text-transform: uppercase;
 }
 
 .footer-form .input {
